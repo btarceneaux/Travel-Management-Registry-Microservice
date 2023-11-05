@@ -49,7 +49,7 @@ pipeline {
                      else \
                     echo OK; \
                  fi;);
-            docker container run --restart always --name api-registry-webservice -p 9000:9000 -d api-registry-webservice
+            docker container run --restart always --name api-registry-webservice -p 9001:9001 -d api-registry-webservice
             '''
             }
         }
