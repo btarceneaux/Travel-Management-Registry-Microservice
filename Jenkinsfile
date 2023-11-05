@@ -43,13 +43,13 @@ pipeline {
             steps {
                 echo '----------------- Deploying docker image ----------'
                 sh '''
-                 (if  [ $(docker ps -a | grep eapi-registry-webservice | cut -d " " -f1) ]; then \
+                 (if  [ $(docker ps -a | grep api-registry-webservice | cut -d " " -f1) ]; then \
                         echo $(docker rm -f api-registry-webservice); \
                         echo "---------------- successfully removed api-registry-webservice ----------------"
                      else \
                     echo OK; \
                  fi;);
-            docker container run --restart always --name api-registry-webservice -p 9001:9001 -d api-registry-webservice
+            docker container run --restart always --name api-registry-webservice -p 9001:9001 -d api-registry-webservice --network travel-management-network
             '''
             }
         }
